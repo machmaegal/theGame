@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chokokutai&display=swap');
+
+/*
+.tiny5-regular {
+  font-family: "Tiny5", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+/*
+.rubik-wet-paint-regular {
+  font-family: "Rubik Wet Paint", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+*/
+/*
+.chokokutai-regular {
+  font-family: "Chokokutai", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../assets/background_img/nebula_1.jpg");
+    color: honeydew;
+    font-family: "Tiny5", sans-serif;
+}
+
+h1 {
+    font-family: "Rubik Wet Paint", mono;
+    font-size: 4em;
+    /*credit to geeksforgeeks to style text with linear gradient*/
+    background: linear-gradient(60deg, orange, yellow, green, cyan, blue, violet);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+
+p {
+    font-size: 2em;
+    font-weight: 600;
+}
+
+button {
+    width: 10vw;
+    height: 5vh;
+    margin: 10px;
+
+    border-radius: 5px;
+    border: none;
+
+    font-family: "Tiny5", sans-serif;
+    font-size: 1em;
+    color: honeydew;
+
+}
+
+/*start menu*/
+/*IDs*/
+#start-menu {
+    width: 100vw;
+    height: 80vh;
+
+    /* display: none; */
+    display: flex;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+}
+
+#logo-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logo-container>img {
+    width: 14vw;
+    height: 24vh;
+}
+
+#main-title {
+    font-family: "Chokokutai", mono;
+    font-size: 8em;
+    font-weight: 800;
+    color: red;
+}
+
+#start-btn {
+    transition-duration: 0.4s;
+    background: transparent;
+}
+
+button:hover {
+    color: red;
+    font-size: 2em;
+}
+
+/*game view*/
+#game-screen {
+    display: none;
+
+    overflow: hidden;
+    position: relative;
+    /* background-image: url(); */
+}
+
+/*game over menu*/
+
+/*IDs*/
+#game-over-menu {
+    display: none;
+    /* display: flex; */
+
+    flex-direction: column;
+    align-content: center;
+}
