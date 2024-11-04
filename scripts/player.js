@@ -10,7 +10,7 @@ class Player {
         this.directionY = 0;
         this.jumpIntervalId = null;
         this.fallIntervalId = null;
-        this.hp = 100;
+        this.hp = 30;
         this.points = 0;
         this.didKick = false;
 

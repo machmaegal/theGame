@@ -56,14 +56,22 @@ class Game {
             const solidHit = this.player.didCollide(anObstacle);
             let kicked = this.player.didKick;
 
-            if (solidHit && kicked) {
-                this.obstacles.splice(anObstacleIndex, 1);
-                anObstacle.element.remove();
-            } else if (solidHit) {
-                this.player.hp -= 10;
-                this.obstacles.splice(anObstacleIndex, 1);
-                anObstacle.element.remove();
+            switch (true) {
+                case (solidHit && kicked):
+                    this.player.points += 1;
+                    console.log('solid hit ' + this.player.points + ' points');
+                    this.obstacles.splice(anObstacleIndex, 1);
+                    anObstacle.element.remove();
+                    break;
+
+                case (solidHit):
+                    this.player.hp -= 10;
+                    console.log('ouch! down to ' + this.player.hp + 'hp');
+                    this.obstacles.splice(anObstacleIndex, 1);
+                    anObstacle.element.remove();
+                    break;
             }
+
             //remove obstacles that pass left screen boundary
             if (anObstacle.right > this.width) {
                 this.obstacles.splice(anObstacleIndex, 1);
