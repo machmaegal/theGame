@@ -12,12 +12,12 @@ class Obstacle {
 
         this.element = document.createElement('img');
         this.element.src = '../assets/sprites/chickin/chicken_move1_noBG.png';
+        //this.element.src = '../assets/sprites/ghosts/ghost_move_1.png';
         this.element.style.position = 'absolute';
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
         this.element.style.bottom = `${this.bottom}px`;
         this.element.style.right = `${this.right}px`;
-
 
         this.gameScreen.appendChild(this.element);
     }

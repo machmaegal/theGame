@@ -8,6 +8,8 @@ class Player {
         this.height = 200;   //try vh
         this.directionX = 0;
         this.directionY = 0;
+        this.jumpIntervalId = null;
+        this.fallIntervalId = null;
 
         this.element = document.createElement('img');
         this.element.src = playerImageSrc;
@@ -29,6 +31,25 @@ class Player {
         if (this.bottom < 150) this.bottom = 150;
 
         this.updatePosition();
+
+    }
+
+    jump() {
+        clearInterval(this.fallIntervalId);
+        this.jumpIntervalId = setInterval(() => {
+            this.bottom += 30;
+            if (this.bottom > 450) { this.fall(); }
+            this.updatePosition;
+        }, 30);
+    }
+
+    fall() {
+        clearInterval(this.jumpIntervalId);
+        this.fallIntervalId = setInterval(() => {
+
+            this.bottom -= 40;
+            this.updatePosition;
+        }, 30);
 
     }
 

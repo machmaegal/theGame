@@ -15,10 +15,10 @@ window.onload = function () {
             case (event.code === 'ArrowLeft'):
                 myGame.player.directionX = -7;
                 break;
-            /* case (event.code === 'ArrowUp' && myGame.player.bottom === 150):
-                myGame.player.directionY = 50;
-                //myGame.player.jump();
-                break; */
+            case (event.code === 'ArrowUp' && myGame.player.bottom === 150):
+                // myGame.player.directionY = 50;
+                myGame.player.jump();
+                break;
 
         }
 
