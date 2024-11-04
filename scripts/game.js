@@ -8,7 +8,7 @@ class Game {
         this.height = window.innerHeight;
         this.width = window.innerWidth;
         //create player
-        this.player = new Player(150, 0, '../assets/sprites/notSaitama/notSaitama_move_1noBG.png');
+        this.player = new Player();
         //create mobs
         this.obstacles = [new Obstacle(this.gameScreen)];
 
@@ -22,11 +22,22 @@ class Game {
         this.startScreen.style.display = 'none';
         this.gameScreen.style.display = 'block'; //flex
 
-
         this.gameIntervalId = setInterval(() => {
             this.gameLoop();
         }, this.gameLoopFrequency);
 
+    }
+
+    end() {
+        clearInterval(this.gameIntervalId);
+        this.gameScreen.style.display = 'none';
+        this.gameScreen.innerHTML = '';
+        this.endScreen.style.display = 'flex';
+    }
+
+    restart() {
+        this.endScreen.style.display = 'none';
+        this.startScreen.style.display = 'flex';
     }
 
     gameLoop() {
@@ -43,17 +54,27 @@ class Game {
         this.obstacles.forEach((anObstacle, anObstacleIndex) => {
             anObstacle.move();
             const solidHit = this.player.didCollide(anObstacle);
+            let kicked = this.player.didKick;
 
-            if (solidHit /*and not in kick animation */) {
-                console.log(('ouch'));
-
+            if (solidHit && kicked) {
+                this.obstacles.splice(anObstacleIndex, 1);
+                anObstacle.element.remove();
+            } else if (solidHit) {
+                this.player.hp -= 10;
+                this.obstacles.splice(anObstacleIndex, 1);
+                anObstacle.element.remove();
+            }
+            //remove obstacles that pass left screen boundary
+            if (anObstacle.right > this.width) {
                 this.obstacles.splice(anObstacleIndex, 1);
                 anObstacle.element.remove();
             }
 
-            if (anObstacle.right > this.width) {
-                this.obstacles.splice(anObstacleIndex, 1);
-                anObstacle.element.remove();
+            if (this.player.hp <= 0) {
+                this.player.element.src = '../assets/sprites/trolls/trolololface_noBG.png';
+                setTimeout(() => {
+                    this.end();
+                }, 1000);
             }
         });
     }
