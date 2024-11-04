@@ -28,7 +28,7 @@
 }
 
 body {
-    background-image: url("../assets/background_img/nebula_1.jpg");
+    background-image: url("../assets/background/nebula_1.jpg");
     color: honeydew;
     font-family: "Tiny5", sans-serif;
 }
@@ -64,8 +64,8 @@ button {
     width: 100vw;
     height: 80vh;
 
-    display: none;
-    /* display: flex; */
+    /* display: none; */
+    display: flex;
 
     flex-direction: column;
     justify-content: center;
@@ -81,17 +81,18 @@ button {
     align-items: center;
 }
 
-#logo-container>h1,
-#player-score {
+#logo-container>h1 {
     /*credit to geeksforgeeks to style text with linear gradient*/
     background: linear-gradient(60deg, orange, yellow, green, cyan, blue, violet);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: text;
+    position: absolute;
 }
 
 #logo-container>img {
+    aspect-ratio: 1/1;
     width: 14vw;
-    height: 24vh;
 }
 
 #main-title {
@@ -110,26 +111,38 @@ button {
 #start-btn:hover {
     color: red;
     font-size: 2em;
+    width: 20vw;
 }
 
 /*game view*/
+/*IDs*/
+#hp-bar {
+    aspect-ratio: 1/1;
+    width: 8vw;
+    position: absolute;
+    float: left;
+    opacity: 0;
+}
+
 #game-screen {
     display: none;
 
-    overflow: hidden;
-    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    /* overflow: hidden;
+    position: relative; */
     /* background-image: url(); */
 }
 
 /*game over menu*/
-
 /*IDs*/
 #game-over-menu {
     width: 100vw;
     height: 80vh;
 
-    /* display: none; */
-    display: flex;
+    display: none;
+    /* display: flex; */
 
     flex-direction: column;
     justify-content: center;
@@ -152,4 +165,9 @@ button {
 
 #player-score {
     font-size: 6em;
+
+    background: linear-gradient(60deg, orange, yellow, green, cyan, blue, violet);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }

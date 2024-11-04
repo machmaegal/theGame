@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="./styles/style.css" />
 
     <script src="./scripts/script.js" async></script>
+    <script src="./scripts/game.js" async></script>
+    <script src="./scripts/player.js" async></script>
+    <script src="./scripts/obstacle.js" async></script>
     <title>the game</title>
 </head>
 
@@ -16,8 +19,8 @@
     <span>
         <div id="start-menu">
             <div id="logo-container">
-                <h1>Weird World Gaming</h1>
-                <img src="./assets/logo_img/ww_logo.png" />
+                <h1>Weird World Games</h1>
+                <img src="./assets/logo_img/ww_logo_purple.png" />
                 <p>proudly presents:</p>
             </div>
             <!--<ul id="high-score"></ul>-->
@@ -29,7 +32,10 @@
     <!-- game view-->
     <span>
         <div id="game-container">
-            <div id="game-screen"></div>
+            <div id="game-screen">
+                <img id="hp-bar" src="./assets/sprites/trolls/trollface1_noBG.png" alt="">
+
+            </div>
         </div>
     </span>
     <!--game over-->
@@ -37,11 +43,15 @@
         <div id="game-over-menu">
             <h1 id="game-over-text">GAME OVER</h1>
             <h2>Your Score:</h2>
-            <h2 id="player-score">666</h2>
+            <h2 id="player-score">#####</h2>
             <button id="restart-btn">Restart Game</button>
         </div>
     </span>
 
+    <!-- <script src="./scripts/script.js"></script>
+    <script src="./scripts/game.js"></script>
+    <script src="./scripts/player.js"></script>
+    <script src="./scripts/obstacle.js"></script> -->
 </body>
 
 </html>
