@@ -16,7 +16,7 @@ class Player {
         this.directionX = 0;
         this.directionY = 0;
         this.element = document.createElement('img');
-        this.element.src = '../assets/sprites/notSaitama/notSaitama_move_1noBG.png';
+        this.element.src = 'assets/sprites/notSaitama/notSaitama_move_1noBG.png';
         this.element.style.position = 'absolute';
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
@@ -24,7 +24,7 @@ class Player {
         this.element.style.left = `${this.left}px`;
         //hp bar
         this.hpBar = document.createElement('img');
-        this.hpBar.src = '../assets/ui/hp_ball.png';
+        this.hpBar.src = 'assets/ui/hp_ball.png';
         this.opacity = 1;
         this.hpBar.classList.add('hp-bar');
         this.hpBar.style.opacity = `${this.opacity}`;
@@ -74,11 +74,11 @@ class Player {
 
     kick() {
         setTimeout(() => {
-            this.element.src = '../assets/sprites/notSaitama/notSaitama_move_1noBG.png';
+            this.element.src = 'assets/sprites/notSaitama/notSaitama_move_1noBG.png';
             this.didKick = false;
         }, 200);
         this.didKick = true;
-        this.element.src = '../assets/sprites/notSaitama/notSaitama_attack_noBG.png';
+        this.element.src = 'assets/sprites/notSaitama/notSaitama_attack_noBG.png';
     }
 
     updatePosition() {

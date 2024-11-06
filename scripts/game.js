@@ -7,7 +7,7 @@ class Game {
         this.scoreDisplay = document.querySelector('#player-score');
         this.hpBar = document.querySelector('#hp-bar');
         this.floor = document.createElement('img');
-        this.floor.src = '../assets/background/lightning_floor.png';
+        this.floor.src = 'assets/background/lightning_floor.png';
         this.floor.classList.add('floor');
         this.height = window.innerHeight;
         this.width = window.innerWidth;
@@ -18,12 +18,12 @@ class Game {
         //this.obstacles = [new Obstacle(this.gameScreen)];
 
         //sounds
-        this.theme = new Audio('../assets/fx/midnight-ride-01a.mp3');
-        //this.outro = new Audio('../assets/fx/destination-01.mp3');
-        this.npcOnDeath = new Audio('../assets/fx/bone-crack-1.mp3');
-        this.playerOnHit = new Audio('../assets/fx/man-scream-ahh-01.mp3');
-        this.playerOnKick = new Audio('../assets/fx/whip-whoosh-01.mp3');
-        this.playerOnDeath = new Audio('../assets/fx/man-laughing-04.mp3');
+        this.theme = new Audio('assets/fx/midnight-ride-01a.mp3');
+        //this.outro = new Audio('assets/fx/destination-01.mp3');
+        this.npcOnDeath = new Audio('assets/fx/bone-crack-1.mp3');
+        this.playerOnHit = new Audio('assets/fx/man-scream-ahh-01.mp3');
+        this.playerOnKick = new Audio('.assets/fx/whip-whoosh-01.mp3');
+        this.playerOnDeath = new Audio('assets/fx/man-laughing-04.mp3');
 
         this.isGameOver = false;
         this.gameIntervalId = null;
@@ -107,7 +107,7 @@ class Game {
             //game over condition
             if (this.player.hp <= 0) {
                 this.playerOnDeath.play();
-                this.player.element.src = '../assets/sprites/trolls/trolololface_noBG.png';
+                this.player.element.src = 'assets/sprites/trolls/trolololface_noBG.png';
                 setTimeout(() => {
                     this.theme.pause();
                     this.theme.currentTime = 0;
