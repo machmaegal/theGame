@@ -41,6 +41,7 @@ class Player {
 
         if (this.left < 0) this.left = 7;
         if (this.bottom < 150) this.bottom = 150;
+        if (this.left >= Math.floor(window.innerWidth) - 155) this.left = -7;
         //glitchy background
         /* if (this.left >= Math.floor(window.innerWidth / 3)) {
             this.left = Math.floor(window.innerWidth / 3);
