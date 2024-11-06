@@ -36,7 +36,6 @@ body {
 h1 {
     font-family: "Rubik Wet Paint", mono;
     font-size: 4em;
-
 }
 
 p {
@@ -59,7 +58,7 @@ button {
 }
 
 /*start menu*/
-/*IDs*/
+/*ID*/
 #start-menu {
     width: 100vw;
     height: 80vh;
@@ -67,7 +66,7 @@ button {
     /* display: none; */
     display: flex;
 
-    flex-direction: column;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 
@@ -76,7 +75,7 @@ button {
 
 #logo-container {
     display: flex;
-    flex-direction: column;
+    flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
 }
@@ -115,24 +114,52 @@ button {
 }
 
 /*game view*/
-/*IDs*/
-#hp-bar {
-    aspect-ratio: 1/1;
-    width: 8vw;
-    position: absolute;
-    float: left;
-    opacity: 0;
-}
-
+/*ID*/
 #game-screen {
     display: none;
-
     width: 100vw;
     height: 100vh;
+    background-image: url('../assets/background/purple_nebula.png');
+    background-position-x: 50%;
+    /* background-size: cover; */
+}
+
+/*Class*/
+.move-background {
+    animation: moveBackground 3s linear reverse infinite;
+}
+
+@keyframes moveBackground {
+
+    0% {
+
+        background-position-x: 0%;
+    }
+
+    100% {
+        background-position-x: 100%;
+    }
+}
+
+.floor {
+    width: 100vw;
+    height: 150px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.hp-bar {
+    aspect-ratio: 1/1;
+    width: 10vw;
+    position: absolute;
+    float: left;
+    opacity: 1;
+    margin: 2% 0 0 2%;
 }
 
 /*game over menu*/
-/*IDs*/
+/*ID*/
 #game-over-menu {
     width: 100vw;
     height: 80vh;

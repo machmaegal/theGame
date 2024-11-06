@@ -1,10 +1,12 @@
 window.onload = function () {
     const startButton = document.querySelector("#start-btn");
     const restartButton = document.querySelector("#restart-btn");
+    let jumped = true;
 
     let myGame;
     startButton.addEventListener("click", () => {
         startGame();
+        myGame.theme.play();
     });
 
     restartButton.addEventListener("click", () => {
@@ -19,14 +21,13 @@ window.onload = function () {
             case (event.code === 'ArrowLeft' || event.code === 'KeyA'):
                 myGame.player.directionX = -7;
                 break;
-            case (event.code === 'ArrowUp' || event.code === 'KeyW' && myGame.player.bottom === 150):
+            case (event.code === 'ArrowUp' && myGame.player.didJump === true || event.code === 'KeyW' && myGame.player.didJump === true):
                 myGame.player.jump();
                 break;
             case (event.code === 'Space'):
                 myGame.player.kick();
                 break;
         }
-
     });
 
     document.addEventListener('keyup', (event) => {
@@ -38,8 +39,6 @@ window.onload = function () {
                 myGame.player.directionX = 0;
                 break;
         }
-        //myGame.player.directionX = 0;
-        //myGame.player.directionY = 0;
     });
 
     function startGame() {
