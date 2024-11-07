@@ -6,6 +6,7 @@ window.onload = function () {
     let myGame;
     startButton.addEventListener("click", () => {
         startGame();
+        myGame.theme.loop = true;
         myGame.theme.play();
     });
 
