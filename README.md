@@ -8,6 +8,7 @@ kick as many chicken as possible and don't get hit.
 
 ## controls:
 **move:** _a - w - d_ or arrows _left - right - up_; 
+
 **kick:** _space_;
 
 ## play here
