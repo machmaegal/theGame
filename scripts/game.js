@@ -1,6 +1,5 @@
 class Game {
     constructor() {
-        //create scene
         this.startScreen = document.querySelector('#start-menu');
         this.gameScreen = document.querySelector('#game-screen');
         this.endScreen = document.querySelector('#game-over-menu');
@@ -11,11 +10,9 @@ class Game {
         this.floor.classList.add('floor');
         this.height = window.innerHeight;
         this.width = window.innerWidth;
-        //create player
+
         this.player = new Player();
-        //create mobs
         this.npcs = [new Npc(this.gameScreen)];
-        //this.obstacles = [new Obstacle(this.gameScreen)];
 
         //sounds
         this.theme = new Audio('assets/fx/midnight-ride-01a.mp3');
@@ -24,7 +21,6 @@ class Game {
         this.playerOnHit = new Audio('assets/fx/man-scream-ahh-01.mp3');
         this.playerOnKick = new Audio('.assets/fx/whip-whoosh-01.mp3');
         this.playerOnDeath = new Audio('assets/fx/man-laughing-04.mp3');
-
         this.isGameOver = false;
         this.gameIntervalId = null;
         this.gameLoopFrequency = Math.round(1000 / 60); //60 FPS
@@ -44,11 +40,9 @@ class Game {
     end() {
         clearInterval(this.gameIntervalId);
         this.gameScreen.style.display = 'none';
-
         this.gameScreen.innerHTML = '';
         this.endScreen.style.display = 'flex';
         this.scoreDisplay.innerText = `#${this.player.score}`;
-        //this.outro.play().loop;
     }
 
     restart() {
@@ -56,8 +50,6 @@ class Game {
         this.playerOnDeath.currentTime = 0;
         this.endScreen.style.display = 'none';
         this.startScreen.style.display = 'flex';
-        /* this.outro.pause();
-        this.outro.currentTime = 0; */
     }
 
     gameLoop() {
@@ -69,13 +61,6 @@ class Game {
 
     update() {
         this.player.move();
-
-        //collision handling for obstacle
-        /* this.obstacles.forEach((obstacle) => {
-            const collision = this.player.obstacleCollision(obstacle);
-            if (collision) console.log(collision);
-
-        }); */
         //collision handling for npc
         this.npcs.forEach((npc, npcIndex) => {
             npc.move();
@@ -85,26 +70,23 @@ class Game {
                 case (solidHit && kicked):
                     this.npcOnDeath.play();
                     this.player.score += 25;
-                    //npc.death.play();
                     this.npcs.splice(npcIndex, 1);
                     npc.element.remove();
                     break;
                 case (solidHit):
                     this.playerOnHit.play();
                     this.player.hp -= 10;
-                    //console.log('hp: ', this.player.hp);
                     this.player.hpBar.style.opacity -= 0.33;
                     this.npcs.splice(npcIndex, 1);
                     npc.element.remove();
                     break;
             }
-
             //remove npc that pass left screen boundary
             if (npc.right > this.width) {
                 this.npcs.splice(npcIndex, 1);
                 npc.element.remove();
             }
-            //game over condition
+
             if (this.player.hp <= 0) {
                 this.playerOnDeath.play();
                 this.player.element.src = 'assets/sprites/trolls/trolololface_noBG.png';

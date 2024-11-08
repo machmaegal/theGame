@@ -121,25 +121,9 @@ button {
     height: 100vh;
     background-image: url('../assets/background/purple_nebula.png');
     background-position-x: 50%;
-    /* background-size: cover; */
 }
 
 /*Class*/
-.move-background {
-    animation: moveBackground 3s linear reverse infinite;
-}
-
-@keyframes moveBackground {
-
-    0% {
-
-        background-position-x: 0%;
-    }
-
-    100% {
-        background-position-x: 100%;
-    }
-}
 
 .floor {
     width: 100vw;
@@ -163,15 +147,13 @@ button {
 #game-over-menu {
     width: 100vw;
     height: 80vh;
+    background: transparent;
 
     display: none;
-    /* display: flex; */
 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background: transparent;
 }
 
 #game-over-text {

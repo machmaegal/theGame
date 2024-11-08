@@ -7,7 +7,6 @@ class Player {
         this.score = 0;
         this.didKick = false;
         this.didJump = true;
-        //this.hitGround = false;
         //toon
         this.bottom = 150;
         this.left = 0;
@@ -28,8 +27,6 @@ class Player {
         this.opacity = 1;
         this.hpBar.classList.add('hp-bar');
         this.hpBar.style.opacity = `${this.opacity}`;
-        //sound
-
         //display elements
         this.gameScreen.appendChild(this.element);
         this.gameScreen.appendChild(this.hpBar);
@@ -41,16 +38,7 @@ class Player {
 
         if (this.left < 0) this.left = 7;
         if (this.bottom < 150) this.bottom = 150;
-        if (this.left >= Math.floor(window.innerWidth) - 155) this.left = -7;
-        //glitchy background
-        /* if (this.left >= Math.floor(window.innerWidth / 3)) {
-            this.left = Math.floor(window.innerWidth / 3);
-            this.gameScreen.classList.add('move-background');
-        }
-        if (this.left < Math.floor(window.innerWidth / 3)) {
-            this.gameScreen.classList.remove('move-background');
-        } */
-
+        if (this.left >= Math.floor(window.innerWidth) - 155) this.left = 0;
         this.updatePosition();
     }
 
@@ -85,8 +73,6 @@ class Player {
     updatePosition() {
         this.element.style.left = ` ${this.left}px`;
         this.element.style.bottom = ` ${this.bottom}px`;
-        //this.gameScreen.style.backgroundPositionX = `-${(this.left + this.directionX)}px`;
-        //this.gameScreen.style.backgroundPositionX = `${this.directionX}px`;
     }
 
     didCollide(npc) {
@@ -105,19 +91,4 @@ class Player {
             return false;
         }
     }
-
-    /* obstacleCollision(obstacle) {
-        const playerRect = this.element.getBoundingClientRect();
-        const obstacleRect = obstacle.element.getBoundingClientRect();
-        if (
-            playerRect.left < obstacleRect.right &&
-            playerRect.right > obstacleRect.left &&
-            playerRect.bottom === obstacleRect.top
-        ) {
-            return true;
-
-        } else {
-            return false;
-        }
-    } */
 }

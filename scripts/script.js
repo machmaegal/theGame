@@ -1,7 +1,6 @@
 window.onload = function () {
     const startButton = document.querySelector("#start-btn");
     const restartButton = document.querySelector("#restart-btn");
-    let jumped = true;
 
     let myGame;
     startButton.addEventListener("click", () => {

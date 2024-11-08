@@ -2,7 +2,7 @@
 **very basic game created during a project week in a coding bootcamp with the purpose of training OOP with JavaScript, Html, CSS**
 
 # description
-game is not reactive. 
+game is not responsive,
 works in full screen.
 kick as many chicken as possible and don't get hit.
 
